@@ -87,12 +87,6 @@ async function run(): Promise<void> {
         } catch (error) {
           core.error(`Something happened ${error}`)
           core.setFailed(error.message)
-          core.error(
-            `Status ${error.response?.status} - Unable to process collection ${localCollection.info.name} with Postman ID ${localCollection.info._postman_id} due to: ${error.response?.data?.error?.message}`
-          )
-          core.setFailed(
-            `Errors processing Postman Collection(s) - Please see the output above`
-          )
         }
       })
     )
