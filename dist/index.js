@@ -106,8 +106,8 @@ function run() {
                     core.info(`Successfully ${remoteCollection ? 'updated' : 'created'} collection ${(_b = (_a = response.data) === null || _a === void 0 ? void 0 : _a.collection) === null || _b === void 0 ? void 0 : _b.name} with Postman ID ${(_d = (_c = response.data) === null || _c === void 0 ? void 0 : _c.collection) === null || _d === void 0 ? void 0 : _d.id}`);
                 }
                 catch (error) {
-                    core.error(`Status ${(_e = error.response) === null || _e === void 0 ? void 0 : _e.status} - Unable to process collection ${localCollection.info.name} with Postman ID ${localCollection.info._postman_id} due to: ${(_h = (_g = (_f = error.response) === null || _f === void 0 ? void 0 : _f.data) === null || _g === void 0 ? void 0 : _g.error) === null || _h === void 0 ? void 0 : _h.message}`);
-                    core.setFailed(`Errors processing Postman Collection(s) - Please see the output above`);
+		    core.error(`Something happened ${error}`);
+          	    core.setFailed(error.message);
                 }
             })));
         }
